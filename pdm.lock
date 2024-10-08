@@ -4,11 +4,8 @@
 [metadata]
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
-lock_version = "4.5.0"
-content_hash = "sha256:46c27598153ae9db81dcb048ff79e91b215edd2845a78d24dc1db92b3a5e853d"
-
-[[metadata.targets]]
-requires_python = "==3.10.*"
+lock_version = "4.4.2"
+content_hash = "sha256:8eb9a2228b441a1592c5c1e10096d376e56023aa86ebcff7cc4c8ae6b9b6f2f3"
 
 [[package]]
 name = "annotated-types"
@@ -16,9 +13,6 @@ version = "0.7.0"
 requires_python = ">=3.8"
 summary = "Reusable constraint types to use with typing.Annotated"
 groups = ["default"]
-dependencies = [
-    "typing-extensions>=4.0.0; python_version < \"3.9\"",
-]
 files = [
     {file = "annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"},
     {file = "annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"},
@@ -32,7 +26,6 @@ summary = "Backblaze B2 SDK"
 groups = ["default"]
 dependencies = [
     "annotated-types>=0.5.0",
-    "importlib-metadata>=3.3.0; python_version < \"3.8\"",
     "logfury<2.0.0,>=1.0.1",
     "requests<3.0.0,>=2.9.1",
     "typing-extensions>=4.7.1; python_version < \"3.12\"",
@@ -84,7 +77,6 @@ dependencies = [
     "jmespath<2.0.0,>=0.7.1",
     "python-dateutil<3.0.0,>=2.1",
     "urllib3!=2.2.0,<3,>=1.25.4; python_version >= \"3.10\"",
-    "urllib3<1.27,>=1.25.4; python_version < \"3.10\"",
 ]
 files = [
     {file = "botocore-1.35.34-py3-none-any.whl", hash = "sha256:ccb0fe397b11b81c9abc0c87029d17298e17bf658d8db5c0c5a551a12a207e7a"},
@@ -99,7 +91,6 @@ summary = "Type annotations and code completion for botocore"
 groups = ["default"]
 dependencies = [
     "types-awscrt",
-    "typing-extensions>=4.1.0; python_version < \"3.9\"",
 ]
 files = [
     {file = "botocore_stubs-1.35.34-py3-none-any.whl", hash = "sha256:a01e38db54b228c9c990002d7f59e65e8a135990d1fc6720141a59e976b7eab2"},
@@ -201,6 +192,17 @@ dependencies = [
 files = [
     {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
     {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
+]
+
+[[package]]
+name = "python-dotenv"
+version = "1.0.1"
+requires_python = ">=3.8"
+summary = "Read key-value pairs from a .env file and set them as environment variables"
+groups = ["default"]
+files = [
+    {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
+    {file = "python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"},
 ]
 
 [[package]]
