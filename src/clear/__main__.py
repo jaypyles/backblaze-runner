@@ -5,6 +5,16 @@ import boto3
 import yaml
 from botocore.exceptions import NoCredentialsError
 
+from b2sdk.v1 import B2Api, InMemoryAccountInfo
+
+key_id = ""
+application_key = ""
+info = InMemoryAccountInfo()
+
+b2_api = B2Api(info)
+
+b2_api.authorize_account("production", key_id, application_key)
+
 
 def read_yaml() -> dict[str, Any]:
     with open("config.yaml") as f:
@@ -14,9 +24,7 @@ def read_yaml() -> dict[str, Any]:
 
 def upload_folder_to_s3(folder_path: str, bucket_name: str, s3_folder: str = ""):
     s3 = boto3.client("s3")
-
-    # Walk through all files and subdirectories in the folder
-    for root, dirs, files in os.walk(folder_path):
+    for root, _, files in os.walk(folder_path):
         for file in files:
             file_path = os.path.join(root, file)
 
