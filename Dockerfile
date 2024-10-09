@@ -14,9 +14,5 @@ RUN pdm install
 # Copy source code
 COPY src ./src
 
-# Copy rclone.conf and config.yaml
-COPY rclone.conf ./
-COPY config.yaml ./
-
 # Run the application
 CMD ["pdm", "run", "python", "src/backblaze-runner/__main__.py"]
