@@ -21,10 +21,14 @@ bucket-name: backups
 backups:
   - name: test
     localPath: ./test
-    mountPath: /app/test
+    mountPath: /backups/test
 ```
 
-The `localPath` is the path to the folder that you want to backup. The `mountPath` is the path to the folder that you want to backup to. The `name` is the name of the backup.
+The `localPath` is the path to the folder that you want to backup. The `mountPath` is the path where the folder will be mounted in the container. 
+
+Note: The mountPath really can be anything you want, a good structure would be to mount everything under `/backups`, for organization.
+
+The `name` is the name of the backup.
 
 Must copy the `config.template.yaml` file to `config.yaml` and fill out the file.
 
