@@ -53,7 +53,7 @@ Use the substiute.sh script to dynamically substitute the config.yaml file into 
 
 ```bash
 ./substitute.sh
-docker compose up --build
+docker compose up
 ```
 
 This will mount the appropriate folders on the machine as volumes and run the script.
@@ -65,7 +65,7 @@ crontab -e
 ```
 
 ```bash
-0 0 * * * docker compose -f /your/path/to/docker-compose.yml up --build
+0 0 * * * docker compose -f /your/path/to/docker-compose.yml up
 ```
 
 
