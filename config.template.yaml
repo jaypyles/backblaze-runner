@@ -1,0 +1,7 @@
+# This file is used to configure the backup process.
+bucket-name: backups # Name of the bucket to use for backups 
+
+backups:
+  - name: test # This is the name of the backup.
+    localPath: ./test # This is the path to the folder that you want to backup.
+    mountPath: /app/test # This is the path the folder will be mounted to in the container.

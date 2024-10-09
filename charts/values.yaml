@@ -1,0 +1,7 @@
+podName: backblaze-runner
+appLabel: backblaze-runner
+containerName: backblaze-runner
+image: jpyles/backblaze-runner:latest
+
+{{- $config := .Files.Get "../../config.yaml" | fromYaml -}}
+backups: {{ $config.backups | toYaml | nindent 2 }}

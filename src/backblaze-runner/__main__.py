@@ -3,12 +3,6 @@ import subprocess
 from typing import Any
 
 import yaml
-from dotenv import load_dotenv
-
-load_dotenv()
-
-key_id = os.getenv("KEY_ID")
-application_key = os.getenv("APPLICATION_KEY")
 
 
 def read_yaml() -> dict[str, Any]:
@@ -21,7 +15,8 @@ def upload_folder_with_rclone(folder_path: str, remote_name: str, remote_path: s
     # Construct rclone command
     command = [
         "rclone",
-        "--config", "./rclone.conf",
+        "--config",
+        "./rclone.conf",
         "copy",
         folder_path,
         f"{remote_name}:{remote_path}",
@@ -33,7 +28,6 @@ def upload_folder_with_rclone(folder_path: str, remote_name: str, remote_path: s
     # Execute the rclone command
     try:
         print(f"Uploading {folder_path} to {remote_name}:{remote_path} using rclone")
-        print(f"Using command: {' '.join(command)}")
         result = subprocess.run(command, check=True, capture_output=True, text=True)
         print(result.stdout)  # Print rclone output to console
     except subprocess.CalledProcessError as e:
@@ -41,8 +35,12 @@ def upload_folder_with_rclone(folder_path: str, remote_name: str, remote_path: s
 
 
 if __name__ == "__main__":
-    # Load configurations from config.yaml (optional)
     config = read_yaml()
+    backups = config.get("backups", [])
 
-    # Start the folder upload process with rclone
-    upload_folder_with_rclone("./test", "b2", "jpyles-bucket/test-folder")
+    for backup in backups:
+        local_path = backup.get("localPath")
+        mount_path = backup.get("mountPath")
+        name = backup.get("name")
+        bucket_name = config.get("bucket-name")
+        upload_folder_with_rclone(local_path, "b2", f"{bucket_name}/{name}")

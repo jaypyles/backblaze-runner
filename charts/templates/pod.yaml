@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ .Values.podName }}
+  labels:
+    app: {{ .Values.appLabel }}
+spec:
+  containers:
+  - name: {{ .Values.containerName }}
+    image: {{ .Values.image }}
+    volumeMounts:
+    {{- range .Values.backups }}
+    - name: {{ .name }}
+      mountPath: /{{ .mountPath }}
+    {{- end }}
+  volumes:
+  {{- range .Values.backups }}
+  - name: {{ .name }}
+    hostPath:
+      path: {{ .localPath }}
+      type: Directory
+  {{- end }}

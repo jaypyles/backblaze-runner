@@ -1,2 +1,7 @@
+# This file is used to configure the backup process.
+bucket-name: jpyles-backups # Name of the bucket to use for backups
+
 backups:
-  - /var
+  - name: test
+    localPath: ./test
+    mountPath: /app/test
