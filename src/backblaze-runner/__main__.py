@@ -28,7 +28,7 @@ def upload_folder_with_rclone(folder_path: str, remote_name: str, remote_path: s
         folder_path,
         f"{remote_name}:{remote_path}",
         "--transfers",
-        "10",  # Number of parallel uploads
+        "4",  # Number of parallel uploads
         "--progress",  # Show progress in terminal
     ]
 
