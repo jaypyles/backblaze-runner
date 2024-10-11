@@ -29,6 +29,9 @@ def upload_folder_with_rclone(folder_path: str, remote_name: str, remote_path: s
         f"{remote_name}:{remote_path}",
         "--transfers",
         "4",  # Number of parallel uploads
+        "--fast-list",  # Add this option to reduce Class C transactions
+        "--tpslimit",
+        "10",  # Limit API calls per second
         "--progress",  # Show progress in terminal
     ]
 
